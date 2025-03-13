@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Universities - Lebanese Universities</title>
+  <style>
+    /* General Layout */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+    }
+    /* SIDE NAVIGATION PANEL */
+    .side-nav {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 250px;
+      height: 100vh;
+      background-color: #333;
+      color: #fff;
+      transition: 0.3s;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+    }
+    .nav-items {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transform: translateY(-20%); /* Shift upward so the content sits a bit above center */
+    }
+    /* Logo styling */
+    .nav-items img.logo {
+      width: 120px;
+      margin-bottom: 20px;
+    }
+    /* Navigation buttons styling */
+    .nav-items a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 20px;
+      margin: 10px 0;
+      width: 100%;
+      text-align: center;
+      transition: background 0.3s;
+      padding: 15px 0;
+    }
+    .nav-items a:hover {
+      background: #575757;
+    }
+    /* HEADER with Background Image and Triple Size */
+    .header {
+      position: fixed;
+      left: 250px;
+      top: 0;
+      width: calc(100% - 250px);
+      padding: 20px;
+      min-height: 360px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      box-sizing: border-box;
+      background: url("header-bg.jpg") no-repeat center center;
+      background-size: cover;
+      color: #fff;
+    }
+    .burger {
+      font-size: 30px;
+      cursor: pointer;
+    }
+    /* MAIN CONTENT */
+    .main-content {
+      margin-left: 250px;
+      padding: 400px 20px 20px 20px; /* Top padding adjusted for the larger header */
+      width: calc(100% - 250px);
+      box-sizing: border-box;
+      text-align: center;
+    }
+    .main-content h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    .main-content p,
+    .main-content h3 {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+    /* University card styling */
+    .university-card {
+      border: 1px solid #ddd;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      background: #fff;
+      text-align: left;
+    }
+    .university-card h3 {
+      margin-top: 0;
+    }
+    .university-card a {
+      color: blue;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <!-- SIDE NAVIGATION PANEL -->
+  <div id="sideNav" class="side-nav">
+    <div class="nav-items">
+      <!-- Logo at the top -->
+      <img src="logo.png" alt="Logo" class="logo">
+      <!-- Navigation buttons underneath the logo -->
+      <a href="index.html">Home</a>
+      <a href="universities.html">Universities</a>
+    </div>
+  </div>
+  
+  <!-- HEADER with Burger Icon and Background Image -->
+  <div class="header">
+    <span class="burger" onclick="toggleNav()">&#9776;</span>
+  </div>
+  
+  <!-- MAIN CONTENT -->
+  <div class="main-content">
+    <h2>Universities in Lebanon</h2>
+    <p>Below is a list of universities in Lebanon. Click on a university to see its faculties and majors.</p>
+    <!-- Example University Card: American University of Beirut -->
+    <div class="university-card">
+      <h3>American University of Beirut</h3>
+      <p>A leading institution with diverse academic programs.</p>
+      <a href="aub.html">View Details</a>
+    </div>
+    <!-- Example University Card: Lebanese American University -->
+    <div class="university-card">
+      <h3>Lebanese American University</h3>
+      <p>A prestigious university offering a wide range of programs.</p>
+      <a href="lau.html">View Details</a>
+    </div>
+    <!-- Add more university cards as needed -->
+  </div>
+  
+  <script>
+    // Toggle the side navigation panel visibility using the burger icon
+    function toggleNav() {
+      var sideNav = document.getElementById("sideNav");
+      var header = document.querySelector(".header");
+      var mainContent = document.querySelector(".main-content");
+      if (sideNav.style.width === "0px") {
+        sideNav.style.width = "250px";
+        header.style.left = "250px";
+        header.style.width = "calc(100% - 250px)";
+        mainContent.style.marginLeft = "250px";
+        mainContent.style.width = "calc(100% - 250px)";
+      } else {
+        sideNav.style.width = "0";
+        header.style.left = "0";
+        header.style.width = "100%";
+        mainContent.style.marginLeft = "0";
+        mainContent.style.width = "100%";
+      }
+    }
+  </script>
+</body>
+</html>

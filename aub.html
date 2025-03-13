@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>American University of Beirut - Faculties &amp; Majors</title>
+  <style>
+    /* General Layout */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+    }
+    /* Side Navigation Panel */
+    .side-nav {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 250px;
+      height: 100vh;
+      background-color: #333;
+      color: #fff;
+      transition: 0.3s;
+      padding-top: 60px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    .side-nav a {
+      display: block;
+      padding: 15px;
+      text-decoration: none;
+      color: #fff;
+      font-size: 20px;
+    }
+    .side-nav a:hover {
+      background: #575757;
+    }
+    /* Header */
+    .header {
+      position: fixed;
+      left: 250px;
+      top: 0;
+      width: calc(100% - 250px);
+      background: #f4f4f4;
+      padding: 10px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      box-sizing: border-box;
+    }
+    .burger {
+      font-size: 30px;
+      cursor: pointer;
+    }
+    /* Main Content */
+    .main-content {
+      margin-left: 250px;
+      padding: 80px 20px 20px 20px;
+      width: calc(100% - 250px);
+      box-sizing: border-box;
+    }
+    /* Faculty Section Styles */
+    .faculty {
+      border: 1px solid #ddd;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      background: #fff;
+    }
+    .faculty h3 {
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Side Navigation Panel -->
+  <div id="sideNav" class="side-nav">
+    <a href="index.html">Home</a>
+    <a href="universities.html">Universities</a>
+  </div>
+  
+  <!-- Header with Burger Icon -->
+  <div class="header">
+    <span class="burger" onclick="toggleNav()">&#9776;</span>
+    <h1 style="margin-left: 20px;">American University of Beirut</h1>
+  </div>
+  
+  <!-- Main Content -->
+  <div class="main-content">
+    <h2>Faculties &amp; Majors</h2>
+    
+    <!-- Faculty: Engineering -->
+    <div class="faculty">
+      <h3>Faculty of Engineering</h3>
+      <ul>
+        <li>Civil Engineering</li>
+        <li>Electrical Engineering</li>
+        <li>Mechanical Engineering</li>
+        <li>Computer Engineering</li>
+      </ul>
+    </div>
+    
+    <!-- Faculty: Arts and Sciences -->
+    <div class="faculty">
+      <h3>Faculty of Arts and Sciences</h3>
+      <ul>
+        <li>Biology</li>
+        <li>Chemistry</li>
+        <li>Mathematics</li>
+        <li>Physics</li>
+      </ul>
+    </div>
+    
+    <!-- Faculty: Medicine -->
+    <div class="faculty">
+      <h3>Faculty of Medicine</h3>
+      <ul>
+        <li>Medicine</li>
+        <li>Pharmacy</li>
+        <li>Nursing</li>
+      </ul>
+    </div>
+    
+    <!-- Add more faculties as needed -->
+  </div>
+  
+  <script>
+    // Toggle side navigation panel visibility
+    function toggleNav() {
+      var sideNav = document.getElementById("sideNav");
+      var header = document.querySelector('.header');
+      var mainContent = document.querySelector('.main-content');
+      if (sideNav.style.width === "0px") {
+        sideNav.style.width = "250px";
+        header.style.left = "250px";
+        header.style.width = "calc(100% - 250px)";
+        mainContent.style.marginLeft = "250px";
+        mainContent.style.width = "calc(100% - 250px)";
+      } else {
+        sideNav.style.width = "0";
+        header.style.left = "0";
+        header.style.width = "100%";
+        mainContent.style.marginLeft = "0";
+        mainContent.style.width = "100%";
+      }
+    }
+  </script>
+</body>
+</html>

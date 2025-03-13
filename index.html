@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home - Lebanese Universities</title>
+  <style>
+    /* General Layout */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+    }
+    /* SIDE NAVIGATION PANEL */
+    .side-nav {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 250px;
+      height: 100vh;
+      background-color: #333;
+      color: #fff;
+      transition: 0.3s;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+    }
+    .nav-items {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transform: translateY(-20%); /* Shift container upward so the logo sits a bit above center */
+    }
+    .nav-items img.logo {
+      width: 120px;
+      margin-bottom: 20px;
+    }
+    .nav-items a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 20px;
+      margin: 10px 0;
+      width: 100%;
+      text-align: center;
+      transition: background 0.3s;
+      padding: 15px 0;
+    }
+    .nav-items a:hover {
+      background: #575757;
+    }
+    /* HEADER with Background Image and Triple Size */
+    .header {
+      position: fixed;
+      left: 250px;
+      top: 0;
+      width: calc(100% - 250px);
+      padding: 20px;
+      min-height: 360px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      box-sizing: border-box;
+      background: url("header-bg.jpg") no-repeat center center;
+      background-size: cover;
+      color: #fff;
+    }
+    /* Burger Icon Styling */
+    .burger {
+      position: absolute;  /* Position it at the top left of the header */
+      top: 20px;
+      left: 20px;
+      font-size: 30px;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.8); /* Light background for contrast */
+      color: #333;
+      padding: 5px 10px;
+      border: 2px solid #333;
+      border-radius: 5px;
+      z-index: 10; /* Ensure it sits on top */
+    }
+    /* MAIN CONTENT */
+    .main-content {
+      margin-left: 250px;
+      padding: 400px 20px 20px 20px; /* Extra top padding to clear the larger header */
+      width: calc(100% - 250px);
+      box-sizing: border-box;
+      text-align: center;
+    }
+    .main-content h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    .main-content p,
+    .main-content h3 {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- SIDE NAVIGATION PANEL -->
+  <div id="sideNav" class="side-nav">
+    <div class="nav-items">
+      <!-- Logo at the top -->
+      <img src="logo.png" alt="Logo" class="logo">
+      <!-- Navigation buttons underneath the logo -->
+      <a href="index.html">Home</a>
+      <a href="universities.html">Universities</a>
+    </div>
+  </div>
+  
+  <!-- HEADER with Background Image -->
+  <div class="header">
+    <!-- Burger Icon at the top left -->
+    <span class="burger" onclick="toggleNav()">&#9776;</span>
+  </div>
+  
+  <!-- MAIN CONTENT -->
+  <div class="main-content">
+    <h2>Introduction</h2>
+    <p>
+      Welcome to our website showcasing universities in Lebanon. Here you can explore a comprehensive list of Lebanese universities along with details about their faculties and majors.
+    </p>
+    <h3>How to Navigate</h3>
+    <p>
+      - Use the side navigation panel on the left (or click the burger icon at the top left to collapse/expand it).<br>
+      - Click "Home" to return to this page.<br>
+      - Click "Universities" to view a list of universities. From there, click on any university to see detailed information about its faculties and majors.
+    </p>
+  </div>
+  
+  <script>
+    // Toggle the side navigation panel visibility using the burger icon
+    function toggleNav() {
+      var sideNav = document.getElementById("sideNav");
+      var header = document.querySelector(".header");
+      var mainContent = document.querySelector(".main-content");
+      if (sideNav.style.width === "0px") {
+        sideNav.style.width = "250px";
+        header.style.left = "250px";
+        header.style.width = "calc(100% - 250px)";
+        mainContent.style.marginLeft = "250px";
+        mainContent.style.width = "calc(100% - 250px)";
+      } else {
+        sideNav.style.width = "0";
+        header.style.left = "0";
+        header.style.width = "100%";
+        mainContent.style.marginLeft = "0";
+        mainContent.style.width = "100%";
+      }
+    }
+  </script>
+</body>
+</html>
