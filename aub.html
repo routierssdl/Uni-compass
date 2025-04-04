@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>American University of Beirut (AUB)</title>
+  <title>AUB Faculties</title>
   <style>
-    /* General Layout */
+    /* BODY & LAYOUT */
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      display: flex; /* side nav is fixed, main content flows next to it */
+      display: flex; /* side nav is fixed, rest flows to the right */
       background-color: #f4f4f4;
     }
-    
-    /* SIDE NAVIGATION PANEL (Fixed) */
+
+    /* SIDE NAVIGATION (FIXED) */
     .side-nav {
       position: fixed;
       left: 0;
@@ -22,7 +22,6 @@
       height: 100vh;
       background-color: #333;
       color: #fff;
-      transition: 0.3s;
       overflow: hidden;
       display: flex;
       justify-content: center;
@@ -46,135 +45,144 @@
       margin: 10px 0;
       width: 100%;
       text-align: center;
-      transition: background 0.3s;
       padding: 15px 0;
+      transition: background 0.3s;
     }
     .nav-items a:hover {
       background: #575757;
     }
-    
-    /* HEADER (Smaller Hero) - NOW SCROLLS WITH PAGE */
+
+    /* HERO / HEADER (SCROLLS WITH PAGE, CENTERED) */
     .header {
-      /* No longer fixed; it’s part of normal flow */
-      margin-left: 250px; /* so it doesn't go under the side nav */
-      height: 250px;
+      /* Not fixed – it scrolls up with content */
+      margin-left: 250px;       /* So the nav doesn't overlap the hero */
+      height: 300px;           /* Hero height – adjust as you like */
       background: url("aub-hero.jpg") no-repeat center center;
       background-size: cover;
       display: flex;
-      align-items: flex-end;
-      padding: 20px;
+      align-items: center;     /* Center vertically */
+      justify-content: center; /* Center horizontally */
       box-sizing: border-box;
       color: #fff;
-      position: relative; /* for burger positioning */
+      text-align: center;
+      position: relative;
     }
-    .header-overlay {
-      background: rgba(0, 0, 0, 0.3); /* overlay for text readability */
-      padding: 10px 20px;
-      border-radius: 5px;
+    /* Slight overlay for better text visibility */
+    .header::before {
+      content: "";
+      position: absolute;
+      top: 0; 
+      left: 0; 
+      right: 0; 
+      bottom: 0;
+      background: rgba(0,0,0,0.4);
+    }
+    .header-content {
+      position: relative; /* so text is above the overlay */
+      z-index: 1;
     }
     .header h1 {
       margin: 0;
-      font-size: 28px;
+      font-size: 36px;
     }
     .header p {
-      margin: 5px 0 0;
-      font-size: 16px;
+      margin: 8px 0 0;
+      font-size: 18px;
     }
-    
-    /* Burger Icon */
+
+    /* BURGER ICON – placed at top-left of the header content */
     .burger {
       position: absolute;
       top: 20px;
       left: 20px;
       font-size: 30px;
       cursor: pointer;
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255,255,255,0.8);
       color: #333;
       padding: 5px 10px;
       border: 2px solid #333;
       border-radius: 5px;
-      z-index: 10;
+      z-index: 2;  /* above the overlay, below .header-content text if needed */
     }
-    
-    /* MAIN CONTENT - sits directly under the header in normal flow */
+
+    /* MAIN CONTENT (BELOW HERO) */
     .main-content {
-      margin-left: 250px; /* to avoid side nav overlap */
+      margin-left: 250px;  /* offset for side nav */
       padding: 20px;
-      width: calc(100% - 250px);
       box-sizing: border-box;
-      text-align: center;
+      /* Because the hero is 300px tall, add top margin so content doesn't overlap */
+      margin-top: 0; 
     }
     .main-content h2 {
+      text-align: center;
       font-size: 24px;
       margin-bottom: 10px;
     }
     .main-content p {
+      text-align: center;
       font-size: 16px;
-      margin-bottom: 20px;
       line-height: 1.6;
+      margin-bottom: 20px;
     }
 
-    /* FACULTIES SECTION */
+    /* FACULTY LIST */
     .faculty-list {
       display: flex;
       flex-direction: column;
       gap: 20px;
       max-width: 600px;
-      margin: 0 auto; /* center the list */
+      margin: 0 auto; /* center list container */
     }
     .faculty-item {
       background: #fff;
       border: 1px solid #ddd;
       border-radius: 5px;
-      text-align: left;
       padding: 20px;
+      text-align: left;
     }
     .faculty-item h3 {
       margin-top: 0;
       font-size: 20px;
       margin-bottom: 10px;
     }
+    .faculty-item p {
+      margin-bottom: 10px;
+    }
     .faculty-item a {
-      display: inline-block;
-      margin-top: 10px;
       color: blue;
       text-decoration: underline;
       font-weight: bold;
     }
-
   </style>
 </head>
 <body>
-  <!-- SIDE NAVIGATION PANEL (Fixed) -->
-  <div id="sideNav" class="side-nav">
+  <!-- SIDE NAV -->
+  <div class="side-nav" id="sideNav">
     <div class="nav-items">
       <img src="logo.png" alt="Logo" class="logo">
       <a href="index.html">Home</a>
       <a href="universities.html">Universities</a>
     </div>
   </div>
-  
-  <!-- HEADER (Smaller Hero) - now scrolling with page -->
+
+  <!-- HEADER (Hero in the middle, not fixed) -->
   <div class="header">
-    <!-- Burger Icon -->
+    <!-- BURGER ICON -->
     <span class="burger" onclick="toggleNav()">&#9776;</span>
-    <!-- Overlay with University Title/Tagline -->
-    <div class="header-overlay">
+    <!-- HERO TEXT CONTENT -->
+    <div class="header-content">
       <h1>American University of Beirut</h1>
-      <p>Leading academic excellence since 1866</p>
+      <p>Leading Academic Excellence Since 1866</p>
     </div>
   </div>
-  
+
   <!-- MAIN CONTENT -->
   <div class="main-content">
     <h2>Faculties at AUB</h2>
-    <p>
-      Below is a list of faculties at the American University of Beirut. 
-      Click on any faculty to view the majors offered there.
-    </p>
+    <p>Below is a list of faculties at the American University of Beirut. Click on any faculty to view the majors offered there.</p>
 
     <div class="faculty-list">
-      <!-- Engineering -->
+      <!-- Faculty: Engineering -->
       <div class="faculty-item">
         <h3>Faculty of Engineering</h3>
         <p>Focuses on Civil, Mechanical, Electrical, and other engineering disciplines.</p>
@@ -194,17 +202,15 @@
         <p>Offers programs in Medicine, Nursing, and Allied Health fields.</p>
         <a href="aub-medicine.html">View Majors</a>
       </div>
-
-      <!-- Add more faculties as needed -->
     </div>
   </div>
-  
+
   <script>
     function toggleNav() {
       var sideNav = document.getElementById("sideNav");
-      var sideNavWidth = sideNav.style.width;
+      var currentWidth = sideNav.style.width;
       
-      if (sideNavWidth === "0px") {
+      if (currentWidth === "0px") {
         // Expand the side nav
         sideNav.style.width = "250px";
       } else {
