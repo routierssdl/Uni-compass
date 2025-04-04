@@ -11,6 +11,7 @@
       font-family: Arial, sans-serif;
       display: flex;
     }
+    
     /* SIDE NAVIGATION PANEL */
     .side-nav {
       position: fixed;
@@ -31,14 +32,14 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      transform: translateY(-20%); /* Shift upward so the content sits a bit above center */
+      transform: translateY(-20%); /* Shift upward so the logo sits a bit above center */
     }
     /* Logo styling */
     .nav-items img.logo {
       width: 120px;
       margin-bottom: 20px;
     }
-    /* Navigation buttons styling */
+    /* Navigation links styling */
     .nav-items a {
       text-decoration: none;
       color: #fff;
@@ -52,6 +53,7 @@
     .nav-items a:hover {
       background: #575757;
     }
+    
     /* HEADER with Background Image and Triple Size */
     .header {
       position: fixed;
@@ -59,7 +61,7 @@
       top: 0;
       width: calc(100% - 250px);
       padding: 20px;
-      min-height: 360px;
+      min-height: 360px; /* Triple the original height */
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       display: flex;
       align-items: center;
@@ -68,10 +70,21 @@
       background-size: cover;
       color: #fff;
     }
+    /* Burger icon styling */
     .burger {
+      position: absolute;
+      top: 20px;
+      left: 20px;
       font-size: 30px;
       cursor: pointer;
+      background: rgba(255, 255, 255, 0.8);
+      color: #333;
+      padding: 5px 10px;
+      border: 2px solid #333;
+      border-radius: 5px;
+      z-index: 10;
     }
+    
     /* MAIN CONTENT */
     .main-content {
       margin-left: 250px;
@@ -89,6 +102,7 @@
       font-size: 20px;
       margin-bottom: 20px;
     }
+    
     /* University card styling */
     .university-card {
       border: 1px solid #ddd;
@@ -97,6 +111,8 @@
       border-radius: 5px;
       background: #fff;
       text-align: left;
+      max-width: 700px;
+      margin: 20px auto; /* Center the cards */
     }
     .university-card h3 {
       margin-top: 0;
@@ -113,14 +129,14 @@
   <div id="sideNav" class="side-nav">
     <div class="nav-items">
       <!-- Logo at the top -->
-      <img src="https://drive.google.com/thumbnail?id=19hLZKQjhGtYSrDztyYnbgAJ8Sgd08br7" alt="Logo" class="logo">
-      <!-- Navigation buttons underneath the logo -->
+      <img src="logo.png" alt="Logo" class="logo">
+      <!-- Navigation links below -->
       <a href="index.html">Home</a>
       <a href="universities.html">Universities</a>
     </div>
   </div>
   
-  <!-- HEADER with Burger Icon and Background Image -->
+  <!-- HEADER with Burger Icon -->
   <div class="header">
     <span class="burger" onclick="toggleNav()">&#9776;</span>
   </div>
@@ -128,20 +144,127 @@
   <!-- MAIN CONTENT -->
   <div class="main-content">
     <h2>Universities in Lebanon</h2>
-    <p>Below is a list of universities in Lebanon. Click on a university to see its faculties and majors.</p>
-    <!-- Example University Card: American University of Beirut -->
+    <p>Below is a list of major universities in Lebanon. Click on any university to view its faculties and majors.</p>
+
+    <!-- AUB -->
     <div class="university-card">
-      <h3>American University of Beirut</h3>
-      <p>A leading institution with diverse academic programs.</p>
-      <a href="aub.html">View Details</a>
+      <h3>American University of Beirut (AUB)</h3>
+      <p>A leading institution with diverse academic programs and a rich history.</p>
+      <a href="AUB.html">View Details</a>
     </div>
-    <!-- Example University Card: Lebanese American University -->
+
+    <!-- LAU -->
     <div class="university-card">
-      <h3>Lebanese American University</h3>
-      <p>A prestigious university offering a wide range of programs.</p>
-      <a href="lau.html">View Details</a>
+      <h3>Lebanese American University (LAU)</h3>
+      <p>Offers a wide range of undergraduate and graduate programs across multiple campuses.</p>
+      <a href="LAU.html">View Details</a>
     </div>
-    <!-- Add more university cards as needed -->
+
+    <!-- BAU -->
+    <div class="university-card">
+      <h3>Beirut Arab University (BAU)</h3>
+      <p>Known for its strong academic programs and contributions to research.</p>
+      <a href="BAU.html">View Details</a>
+    </div>
+
+    <!-- UL -->
+    <div class="university-card">
+      <h3>Lebanese University (UL)</h3>
+      <p>The only public university in Lebanon, with faculties spread across various campuses.</p>
+      <a href="LU.html">View Details</a>
+    </div>
+
+    <!-- USJ -->
+    <div class="university-card">
+      <h3>Université Saint-Joseph (USJ)</h3>
+      <p>A prominent French-speaking institution with a wide array of programs.</p>
+      <a href="USJ.html">View Details</a>
+    </div>
+
+    <!-- USEK -->
+    <div class="university-card">
+      <h3>Holy Spirit University of Kaslik (USEK)</h3>
+      <p>A private, Catholic university offering diverse programs and research opportunities.</p>
+      <a href="USEK.html">View Details</a>
+    </div>
+
+    <!-- UOB -->
+    <div class="university-card">
+      <h3>University of Balamand (UOB)</h3>
+      <p>A private, non-profit institution with multiple campuses and faculties.</p>
+      <a href="UOB.html">View Details</a>
+    </div>
+
+    <!-- LIU -->
+    <div class="university-card">
+      <h3>Lebanese International University (LIU)</h3>
+      <p>Provides affordable education across numerous campuses in Lebanon.</p>
+      <a href="LIU.html">View Details</a>
+    </div>
+
+    <!-- MEU -->
+    <div class="university-card">
+      <h3>Middle East University (MEU)</h3>
+      <p>A Christian co-educational institution on a scenic campus near Beirut.</p>
+      <a href="MEU.html">View Details</a>
+    </div>
+
+    <!-- IUL -->
+    <div class="university-card">
+      <h3>Islamic University of Lebanon (IUL)</h3>
+      <p>Offers programs in Islamic studies, engineering, law, and more.</p>
+      <a href="IUL.html">View Details</a>
+    </div>
+
+    <!-- NDU -->
+    <div class="university-card">
+      <h3>Notre Dame University–Louaize (NDU)</h3>
+      <p>A Catholic institution known for its liberal arts tradition.</p>
+      <a href="NDU.html">View Details</a>
+    </div>
+
+    <!-- AUST -->
+    <div class="university-card">
+      <h3>American University of Science and Technology (AUST)</h3>
+      <p>Offers diverse programs in arts, sciences, business, and technology.</p>
+      <a href="AUST.html">View Details</a>
+    </div>
+
+    <!-- AUCE -->
+    <div class="university-card">
+      <h3>American University of Culture & Education (AUCE)</h3>
+      <p>Focuses on culture, education, and professional development across various fields.</p>
+      <a href="AUCE.html">View Details</a>
+    </div>
+
+    <!-- RHU -->
+    <div class="university-card">
+      <h3>Rafik Hariri University (RHU)</h3>
+      <p>A private institution promoting critical thinking and innovation.</p>
+      <a href="RHU.html">View Details</a>
+    </div>
+
+    <!-- UA -->
+    <div class="university-card">
+      <h3>Université Antonine (UA)</h3>
+      <p>A private institution offering a variety of programs in the arts, social sciences, and more.</p>
+      <a href="UA.html">View Details</a>
+    </div>
+
+    <!-- Haigazian -->
+    <div class="university-card">
+      <h3>Haigazian University</h3>
+      <p>An Armenian institution committed to the liberal arts tradition and community engagement.</p>
+      <a href="Haigazian.html">View Details</a>
+    </div>
+
+    <!-- Sagesse University -->
+    <div class="university-card">
+      <h3>Sagesse University</h3>
+      <p>A Catholic university under the Maronite Archdiocese, offering a range of specializations.</p>
+      <a href="Sagesse.html">View Details</a>
+    </div>
+
   </div>
   
   <script>
