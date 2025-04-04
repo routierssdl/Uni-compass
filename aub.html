@@ -9,11 +9,11 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      display: flex; /* side nav + main content side-by-side */
+      display: flex; /* side nav is fixed, main content flows next to it */
       background-color: #f4f4f4;
     }
     
-    /* SIDE NAVIGATION PANEL */
+    /* SIDE NAVIGATION PANEL (Fixed) */
     .side-nav {
       position: fixed;
       left: 0;
@@ -53,13 +53,11 @@
       background: #575757;
     }
     
-    /* HEADER (Smaller Hero) */
+    /* HEADER (Smaller Hero) - NOW SCROLLS WITH PAGE */
     .header {
-      position: fixed;
-      left: 250px; /* side nav width */
-      top: 0;
-      width: calc(100% - 250px);
-      height: 250px; /* smaller hero area */
+      /* No longer fixed; it’s part of normal flow */
+      margin-left: 250px; /* so it doesn't go under the side nav */
+      height: 250px;
       background: url("aub-hero.jpg") no-repeat center center;
       background-size: cover;
       display: flex;
@@ -67,6 +65,7 @@
       padding: 20px;
       box-sizing: border-box;
       color: #fff;
+      position: relative; /* for burger positioning */
     }
     .header-overlay {
       background: rgba(0, 0, 0, 0.3); /* overlay for text readability */
@@ -97,10 +96,9 @@
       z-index: 10;
     }
     
-    /* MAIN CONTENT */
+    /* MAIN CONTENT - sits directly under the header in normal flow */
     .main-content {
-      margin-left: 250px;   /* for side nav */
-      margin-top: 250px;    /* below the header/hero */
+      margin-left: 250px; /* to avoid side nav overlap */
       padding: 20px;
       width: calc(100% - 250px);
       box-sizing: border-box;
@@ -116,7 +114,7 @@
       line-height: 1.6;
     }
 
-    /* FACULTIES SECTION (Only faculties, no majors) */
+    /* FACULTIES SECTION */
     .faculty-list {
       display: flex;
       flex-direction: column;
@@ -147,7 +145,7 @@
   </style>
 </head>
 <body>
-  <!-- SIDE NAVIGATION PANEL -->
+  <!-- SIDE NAVIGATION PANEL (Fixed) -->
   <div id="sideNav" class="side-nav">
     <div class="nav-items">
       <img src="logo.png" alt="Logo" class="logo">
@@ -156,7 +154,7 @@
     </div>
   </div>
   
-  <!-- HEADER (Smaller Hero) -->
+  <!-- HEADER (Smaller Hero) - now scrolling with page -->
   <div class="header">
     <!-- Burger Icon -->
     <span class="burger" onclick="toggleNav()">&#9776;</span>
@@ -204,20 +202,14 @@
   <script>
     function toggleNav() {
       var sideNav = document.getElementById("sideNav");
-      var header = document.querySelector(".header");
-      var mainContent = document.querySelector(".main-content");
-      if (sideNav.style.width === "0px") {
+      var sideNavWidth = sideNav.style.width;
+      
+      if (sideNavWidth === "0px") {
+        // Expand the side nav
         sideNav.style.width = "250px";
-        header.style.left = "250px";
-        header.style.width = "calc(100% - 250px)";
-        mainContent.style.marginLeft = "250px";
-        mainContent.style.width = "calc(100% - 250px)";
       } else {
+        // Collapse the side nav
         sideNav.style.width = "0";
-        header.style.left = "0";
-        header.style.width = "100%";
-        mainContent.style.marginLeft = "0";
-        mainContent.style.width = "100%";
       }
     }
   </script>
